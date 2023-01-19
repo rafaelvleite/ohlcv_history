@@ -6,20 +6,11 @@ This is a temporary script file.
 """
 
 import ccxt
-import time
 from datetime import datetime
 import pandas as pd
 
 exchange = ccxt.binance()
 exchange.load_markets()
-print(exchange.markets)
-markets = exchange.markets
-
-
-if exchange.has['fetchOHLCV']:
-    for symbol in exchange.markets:
-        time.sleep (exchange.rateLimit / 1000) # time.sleep wants seconds
-        print (symbol, exchange.fetch_ohlcv (symbol, '1d')) # one day
 
 symbol = 'BTC/USDT' 
 since = int(datetime.strptime('2022-09-01', '%Y-%m-%d').timestamp()) * 1000
